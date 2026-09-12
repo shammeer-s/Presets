@@ -56,4 +56,4 @@ Anything the frontier couldn't reach yet because it depends on work outside this
 
 </vision-template>
 
-This document is the input to `/to-spec`, not a replacement for it: it records what was agreed, not user stories, seams, or testing decisions.
+This document is an input to `diffindo`, not a replacement for it: it records what was agreed, not tickets, ordering, or acceptance criteria. Once saved, tell the user the vision doc is ready to be cut into tickets with `diffindo`.
