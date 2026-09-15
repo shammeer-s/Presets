@@ -29,7 +29,7 @@ The session is done when the frontier is empty: every branch of the design tree 
 
 Once the user confirms, write the session to a document instead of leaving it in the conversation. Do not interview further at this stage; only synthesize what was already settled.
 
-Save it as `docs/vision/<topic-slug>.md` if the repo has a `docs/` folder, otherwise ask the user where it should live.
+Save it as `docs/roadmap/<phase-slug>/plan.md` if the repo has a `docs/` folder, otherwise ask the user where it should live.
 
 <vision-template>
 
@@ -56,4 +56,6 @@ Anything the frontier couldn't reach yet because it depends on work outside this
 
 </vision-template>
 
-This document is an input to `diffindo`, not a replacement for it: it records what was agreed, not tickets, ordering, or acceptance criteria. Once saved, tell the user the vision doc is ready to be cut into tickets with `diffindo`.
+This document is an input to `diffindo`, not a replacement for it: it records what was agreed, not tickets, ordering, or acceptance criteria. Once saved, tell the user the plan is ready to be cut into tickets with `diffindo`.
+
+If this session came from `marauders-map` starting a phase, this file is `docs/roadmap/<phase-slug>/plan.md` inside that phase's own folder — never write a standalone vision doc outside it.
