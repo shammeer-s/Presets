@@ -9,24 +9,26 @@ Cut a spec into tickets small enough to build and verify one at a time, each dec
 
 ## Process
 
-1. **Read the source document.** Find the spec or vision doc the user points to, or the most recent one under `docs/vision/` or `docs/specs/` if they don't specify. Do not proceed on a vague verbal description alone — ask which document to cut if none is given.
+1. **Read the source document.** The source is `docs/roadmap/<phase-slug>/plan.md`, and, when subphases exist, `docs/roadmap/<phase-slug>/phases.md` for which decisions belong to which subphase. If the user points to a different document, use that instead. Do not proceed on a vague verbal description alone — ask which document to cut if none is given.
 
-If the source is a `skulblakas-ven` vision doc, its sections map to this process directly:
+If the source is a `skulblakas-ven` plan (`plan.md`), its sections map to this process directly:
 
 - **Settled Decisions** is the only section tickets are cut from.
 - **Parked Items** and **Open Questions for Next Session** are explicitly out of scope. Never turn a parked or open item into a ticket — list them under "Deferred" in the output instead (see template) so they stay visible without being treated as ready work.
+
+If cutting one subphase specifically, only pull the decisions `phases.md` lists under that subphase — not the whole plan.
 
 2. **Find the cut lines.** Identify the natural seams in the settled work: each independently testable piece of behaviour, schema, or interface change. Prefer one ticket per seam. A ticket that bundles two unrelated seams, or that bundles a settled decision with a parked one, should be split further.
 
 3. **Order by dependency.** For each ticket, work out what it needs already in place before it can start. A ticket with no unmet dependency is ready now; everything else is blocked. Chain dependencies explicitly — don't leave an implied order unstated.
 
-4. **Write one ticket file.** Save all tickets together as a single document, not scattered files: `docs/tickets/<topic-slug>.md`, using the template below.
+4. **Write one ticket file per subphase.** `docs/roadmap/<phase-slug>/<subphase-slug>-tickets.md`, inside that phase's own folder, using the template below. If the phase has no subphases (small enough to cut directly), write `docs/roadmap/<phase-slug>/tickets.md` instead.
 
 <tickets-template>
 
-# Tickets: <Topic>
+# Tickets: <Subphase or Phase name>
 
-Source: <path to the spec/vision doc this was cut from>
+Source: <path to plan.md, and phases.md if subphase-scoped>
 
 ## Ticket 1: <short title>
 
@@ -62,3 +64,7 @@ Items from the source document's Parked or Open Questions sections. Not tickets 
 ## Stopping condition
 
 Done when every seam from the source document has a ticket, every ticket has a stated dependency (or none), and the user has confirmed the split and order.
+
+## Keeping documents in sync
+
+If cutting tickets surfaces a problem with `plan.md` or `phases.md` — a decision that doesn't actually split cleanly, a subphase boundary that doesn't hold — fix that document too, in the same turn, before finalizing the ticket file. Don't write tickets against a plan you already know is wrong and leave the mismatch for later.
