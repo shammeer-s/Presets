@@ -57,3 +57,7 @@ Never assert against a live model call inside this loop — a nondeterministic r
 ## Stopping condition
 
 The loop is done when every seam agreed at the start is covered by a passing test and no test was written without first seeing it fail.
+
+## Keeping documents in sync
+
+If implementing a ticket reveals the plan was wrong — a decision in `plan.md` doesn't hold up, a ticket's scope or acceptance criteria no longer matches what actually needs building — stop and update the affected document(s) before continuing: the ticket file itself, and, if the change reaches further, `phases.md` and the phase's row in the root `docs/roadmap/<project-slug>.md`. Tell the user what changed and why. Never leave a ticket file describing work that no longer matches what was actually built.
